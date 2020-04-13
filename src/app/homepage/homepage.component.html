@@ -1,0 +1,11 @@
+<div class="flex-box">
+    <div class="switch">
+        <button type="button" (click)="nowPlayingSelected()" [ngClass]="toogleNowPlaying ? 'active' : ''">Em cartaz</button>
+        <button type="button" (click)="upcomingSelected()" [ngClass]="toogleUpcoming ? 'active' : ''">Lançamentos</button>
+    </div>
+    <section [ngSwitch]="movieState">
+        <app-card-item movieList="nowPlaying" *ngSwitchCase="'nowPlaying'"></app-card-item>
+        <app-card-item movieList="upcoming" *ngSwitchCase="'upcoming'"></app-card-item>
+        <app-card-item movieList="nowPlaying" *ngSwitchDefault></app-card-item>
+    </section>
+</div>

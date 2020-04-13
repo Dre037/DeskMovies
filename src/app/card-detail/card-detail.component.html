@@ -1,0 +1,49 @@
+<div class="poster-detail" *ngIf="movie">
+    <div class="poster-path">
+        <img *ngIf="movie.backdrop_path != null; else noImage" src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" alt="">
+        <ng-template #noImage>
+            <img src="../../assets/no-image-placeholder.jpg" alt="">
+        </ng-template>
+    </div>
+    <div class="movie-heading">
+        <img *ngIf="movie.poster_path != null; else noPosterImage" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="">
+        <ng-template #noPosterImage>
+            <img src="../../assets/no-image-placeholder.jpg" alt="">
+        </ng-template>
+        <div class="infos-movie">
+            <h1>{{movie.title}} <span *ngIf="movie.title != movie.original_title">({{movie.original_title}})</span></h1>
+            <span>Ano de Lançamento: {{movie.release_date | date: 'yyyy'}}</span>
+            <span class="language">{{movie.original_language}}</span>
+            <ul>
+                <li *ngFor="let g of movie.genres">{{g.name}}</li>
+            </ul>
+            <div class="countries">
+                <h3>Production Countries</h3>
+                <ul>
+                    <li *ngFor="let pc of movie.production_countries">{{pc.name}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="avaliation">
+            <h3>Avaliações dos usuários</h3>
+            <span>{{movie.vote_average * 10}}%</span>
+        </div>
+    </div>
+    <div class="movie-details">
+        <aside>
+            <h4>Production Companies</h4>
+            <div *ngFor="let pcom of movie.production_companies">
+                <img *ngIf="pcom.logo_path != null; else noCompanyImage" src="https://image.tmdb.org/t/p/original{{pcom.logo_path}}" alt="">
+                <ng-template #noCompanyImage>
+                    <img src="../../assets/no-image-placeholder.jpg" alt="">
+                </ng-template>
+                <h4>{{pcom.name}}</h4>
+            </div>
+        </aside>
+        <div class="movie-overview">
+            <h4>{{movie.tagline}}</h4>
+            <h3>Sinopse</h3>
+            <p>{{movie.overview}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<section>
+    <h3>Você está buscando por "{{paramSearch}}"</h3>
+    <div class="flex-box" *ngIf="movies">
+        <div class="card-line" *ngFor="let m of movies">
+            <a routerLink="/overview/{{m.id}}">
+                <img *ngIf="m.poster_path; else noImage" class="card-image" src="https://image.tmdb.org/t/p/w500{{m.poster_path}}" alt="">
+                <ng-template #noImage>
+                    <img class="card-image" src="../../assets/no-image-placeholder.jpg" alt="">
+                </ng-template>
+            </a>
+            <div class="content">
+                <a routerLink="/overview/{{m.id}}">
+                    <h4>{{m.title}} <span *ngIf="m.title != m.original_title" >- ({{m.original_title}})</span></h4>
+                </a>
+                <span>{{m.release_date | date: 'd MMM - yyyy'}}</span>
+                <p>{{m.overview}}</p>
+            </div>
+        </div>
+    </div>
+</section>

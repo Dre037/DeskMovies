@@ -1,0 +1,47 @@
+@import "../../variables.scss";
+
+.form-search {
+    display: flex;
+    align-self: stretch;
+    height: 40px;
+    position: relative;
+    width: 50vw;
+
+    & input {
+        width: calc(100% - 80px);
+        border: 1px solid #e7e7e7;
+        border-radius: 20px;
+        padding: 0 20px;
+        position: relative;
+        z-index: 1;
+        transition: border .2s linear;
+    }
+
+    & input:focus {
+        outline: 0;
+        border: 1px solid $accent-color;
+        border-right: 0;
+    }
+
+    & button {
+        border: 0;
+        background-color: $accent-color;
+        color: white;
+        padding: 0 20px 0 60px;
+        border-radius: 0 20px 20px 0;
+        position: absolute;
+        height: 100%;
+        right: 0;
+        cursor: pointer;
+    }
+
+    & button:focus {
+        outline: 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .form-search {
+        width: 100%;
+    }
+}

@@ -1,0 +1,49 @@
+@import "../../variables.scss";
+
+.header-application {
+    background-color: $primary-color;
+    color: white;
+    padding: 20px;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 7px 15px 5px #e7e7e7;
+
+    & .header-brand {
+        & a {
+            text-decoration: none;
+            position: relative;
+            & h3 {
+                margin: 0;
+                font-size: 3vw;
+                font-family: 'Righteous';
+                color: white;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    & app-search-bar {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .header-application {
+        flex-direction: column;
+
+        & .header-brand a h3 {
+            position: relative;
+            font-size: 24px;
+            margin: 5px auto;
+        }
+
+        & app-search-bar {
+            width: 100%;
+        }
+    }
+}

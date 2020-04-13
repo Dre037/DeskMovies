@@ -1,0 +1,88 @@
+section {
+    width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;;
+
+    & h3 {
+        width: 100%;
+        text-align: center;
+    }
+
+    & .flex-box {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+
+        & .card-line {
+            width: 100%;
+            display: flex;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            border: 1px solid #e7e7e7;
+            color: black;
+            overflow: hidden;
+            box-shadow: 0 7px 15px 5px #e7e7e7;
+            min-height: 185px;
+            max-height: 185px;
+            
+            & .card-image {
+                width: 120px;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            & .content {
+                display: flex;
+                flex-direction: column;
+                padding: 15px;
+
+                & a {
+                    text-decoration: none;
+                    color: black;
+                    & h4 {
+                        margin-top: 0;
+                        margin-bottom: 10px;
+                        font-size: 20px;
+                    }
+                }
+                
+                & span {
+                    font-size: 16px;
+                    padding: 5px;
+                }
+
+                & p {
+                    margin-top: auto;
+                    margin-bottom: 0;
+                    max-width: 45ch;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+                & button {
+                    margin-top: 10px;
+                    margin-left: auto;
+                    background-color: none;
+                    border: 1px solid;
+                    border-radius: 5px;
+                    padding: 5px;
+                    align-self: flex-start;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    section {
+        width: calc(100vw - 20px);
+        padding: 0 10px;
+
+        & .card-line .content p {
+            display: none;
+        }
+    }
+}
